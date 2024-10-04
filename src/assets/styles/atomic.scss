@@ -1,0 +1,95 @@
+// src/assets/atomic.scss
+
+// 1. 顏色
+$color-primary: #cc6a68;
+$color-secondary: #ce9e98;
+$color-text: #474747;
+$color-bg-primary: #ece9e9;
+$color-bg-secondary: #f6f6f6;
+
+// 2. 字體
+$font-size-base: 14px;
+$font-size-large: 18px;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// 3. 間距
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+
+@mixin shadow() {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+              0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+// 4. 原子樣式
+.text-center {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: $spacing-small;
+}
+
+.mt-2 {
+  margin-top: $spacing-medium;
+}
+
+.mt-3 {
+  margin-top: $spacing-large;
+}
+
+.p-1 {
+  padding: $spacing-small;
+}
+
+.p-2 {
+  padding: $spacing-medium;
+}
+
+.p-3 {
+  padding: $spacing-large;
+}
+
+.bg-primary {
+  background-color: $color-bg-primary;
+}
+
+.bg-secondary {
+  background-color: $color-bg-secondary;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.text-primary {
+  color: $color-primary;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-secondary {
+  color: $color-secondary;
+}
+
+.button-primary {
+  background-color: $color-primary;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: normal;
+  border-radius: 4px;
+  &:hover {
+    background-color: rgba($color-secondary, .4);
+    color: $color-primary;
+    border: none;
+  }
+}
+
+.card-shadow {
+  @include shadow()
+}

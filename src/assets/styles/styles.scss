@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;  // 設定全局字體
+  font-size: 16px;                  // 設定全局字體大小
+  color: #333;                      // 設定全局字體顏色
+  margin: 0;                       // 去掉預設的邊距
+  padding: 0;                      // 去掉預設的內邊距
+  background-color: #f4f4f4;       // 設定背景顏色
+}
+
+html {
+  height: 100%;                     // 使 HTML 高度為 100%
+}
+
+// 其他全局樣式
+* {
+  box-sizing: border-box;           // 設定 box-sizing
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;                        // 去掉標題的預設邊距
+}
+
+p {
+  margin: 0;                        // 去掉段落的預設邊距
+}
