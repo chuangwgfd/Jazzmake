@@ -2,10 +2,11 @@
   <div class="login bg-primary">
     .login__form.bg-white.card-shadow
       h3.text-center.text-primary 後台系統
-      <el-input placeholder="使用者帳號" v-model="username" />
-      el-input(placeholder="使用者密碼" type="password" v-model="password")
-      el-button.login__button.button-primary 登入
+      el-input.input-primary(placeholder="使用者帳號" v-model="username")
+      el-input.input-primary(placeholder="使用者密碼" type="password" v-model="password")
+      el-button.login__button.button-primary(@click="handleLogin") 登入
 
+    img.login__logo(src="@/assets/images/爵仕美Logo-01.png")
     
   </div>
 </template>
@@ -34,6 +35,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100vh;
+
   &__form {
     position: absolute;
     top: 50%;
@@ -57,6 +59,13 @@ export default {
   &__button {
     width: 40%;
     margin-top: 24px;
+  }
+
+  &__logo {
+    position: absolute;
+    bottom: 10%;
+    right: 100px;
+    width: 380px;
   }
 }
 </style>

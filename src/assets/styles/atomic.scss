@@ -60,6 +60,24 @@ $spacing-large: 24px;
   background-color: $color-bg-secondary;
 }
 
+.side-menu-item {
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  outline: 0;
+  background-color: $color-secondary;
+  &:hover, &:focus {
+    background-color: $color-primary;
+  }
+  &:focus {
+    @include shadow()
+  }
+}
+
+.bg-side {
+  background-color: $color-secondary;
+}
+
 .bg-white {
   background-color: #fff;
 }
@@ -87,6 +105,17 @@ $spacing-large: 24px;
     background-color: rgba($color-secondary, .4);
     color: $color-primary;
     border: none;
+  }
+}
+
+.input-primary {
+  input {
+    background-color: #ece9e9;
+    border-color: rgba($color-secondary, .4);
+    &:focus, &:hover {
+      border-color: $color-primary;
+      outline: 0;
+    }
   }
 }
 

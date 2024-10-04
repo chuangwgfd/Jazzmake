@@ -1,13 +1,20 @@
 <template lang="pug">
-  <div class="main">
-    <h1>Main Page</h1>
-    <p>Welcome to the main page!</p>
-    <el-button type="danger" @click="handleLogout">Logout</el-button>
-  </div>
+  Layout
+    <div class="main">
+      <h1>Main Page</h1>
+      <p>Welcome to the main page!</p>
+      <el-button type="danger" @click="handleLogout">Logout</el-button>
+    </div>
 </template>
 
 <script>
+import Layout from '@/components/Layout.vue';
+
 export default {
+  name: 'Main',
+  components: {
+    Layout
+  },
   methods: {
     handleLogout() {
       // 在這裡處理登出邏輯
