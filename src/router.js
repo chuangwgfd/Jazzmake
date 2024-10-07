@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from './views/Login.vue';  // 引入 Login 組件
 import Main from './views/Main.vue';      // 引入 Main 組件
+import Camera from './views/Camera.vue';
 
 Vue.use(Router);
 
@@ -15,7 +16,12 @@ const routes = [
     path: '/main',
     name: 'Main',
     component: Main
-  }
+  },
+  {
+    path: '/camera',
+    name: 'Camera',
+    component: Camera
+  },
 ];
 
 const router = new Router({

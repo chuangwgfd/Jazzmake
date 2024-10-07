@@ -1,21 +1,28 @@
 <!-- src/components/Layout.vue -->
 <template lang="pug">
-  div
+  .flex
     SideMenu
-    slot
+    .main.flex.flex-column.align-items-stretch
+      Header
+      slot
 
 </template>
 
 <script>
-import SideMenu from './SideMenu.vue';
+import SideMenu from "./SideMenu.vue";
+import Header from "./Header.vue";
+
 export default {
-  name: 'Layout',
+  name: "Layout",
   components: {
-    SideMenu
-  }
-}
+    SideMenu,
+    Header,
+  },
+};
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.main {
+  flex: 1;
+}
 </style>
