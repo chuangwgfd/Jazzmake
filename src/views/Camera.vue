@@ -12,29 +12,80 @@
             span 攝影機畫面
           .cell.input
             el-input(placeholder="查詢其他日期")
-        .t-body.flex.flex-column
+        .t-body.flex.flex-column(v-show="queryOn")
           template(v-for="(row, i) in tableData")
             .row.flex
               .cell
                 span {{ row.date }}
               template(v-for="(item, i) in 8")
                 .cell
-                  .link {{ `Camera${i+1}` }}
-      .page.flex.center-center.bg-white
+                  .link(@click="handleCamera") {{ `Camera${i+1}` }}
+      .page.flex.center-center.bg-white(v-show="queryOn")
         el-pagination(layout="prev, pager, next" :total="50")
     
+    el-dialog(
+      :visible="isQueryDialogOpen"
+      width="400px"
+      title="監視器畫面查詢"
+      custom-class="dialog-primary"
+      top="30vh"
+    )
+      .wrap.flex.flex-column.center-center
+        el-select.select-primary(placeholder="請選擇欲查看時間" v-model="value")
+          el-option.option-primary(v-for="(item, i) in options" :key="i" :label="item.label" :value="item.value")
+        el-button.button-primary.mt-1(@click="handleQuery") 前往查詢
+
+    el-dialog(
+      :visible="isLoginDialogOpen"
+      :before-close="handleClose"
+      width="400px"
+      custom-class="dialog-primary"
+      top="30vh"
+    )
+      el-dialog(
+        :visible="isErrorDialogOpen"
+        width="300px"
+        custom-class="dialog-error"
+        :show-close="false"
+        top="30vh"
+        append-to-body
+      )
+        .wrap.flex.flex-column.center-center
+          Icon.dialog-icon(icon="bi:x-circle")
+          label 輸入的密碼不正確
+          el-button.button-secondary.mt-1(@click="handleCloseError") 確定
+
+      .wrap.flex.flex-column.center-center
+        label.align-self-start(:style="{fontSize: '1rem'}") 請輸入管理員密碼
+        el-input.input-primary.mt-1(type="password" v-model="password")
+        el-button.button-primary.mt-1(@click="handleLogin") 登入
+      
 </template>
 
 <script>
 import Layout from "@/components/Layout.vue";
+import { Icon } from "@iconify/vue2";
 
 export default {
   name: "Camera",
   components: {
     Layout,
+    Icon
   },
   data() {
     return {
+      isQueryDialogOpen: false,
+      isLoginDialogOpen: false,
+      isErrorDialogOpen: false,
+      queryOn: false,
+      password: '',
+      value: '',
+      options: [
+        { label: '近一週', value: '1' },
+        { label: '近一個月', value: '2' },
+        { label: '近60天', value: '3' },
+        { label: '近90天', value: '4' },
+      ],
       cardItems: [
         { label: '倉存管理', icon: '' },
         { label: '監視系統', icon: '' },
@@ -58,7 +109,27 @@ export default {
       ],
     };
   },
-  methods: {},
+  mounted() {
+    this.isQueryDialogOpen = true
+  },
+  methods: {
+    handleQuery() {
+      this.queryOn = true
+      this.isQueryDialogOpen = false
+    },
+    handleClose() {
+      this.isLoginDialogOpen = false
+    },
+    handleCamera() {
+      this.isLoginDialogOpen = true
+    },
+    handleLogin() {
+      this.isErrorDialogOpen = true
+    },
+    handleCloseError() {
+      this.isErrorDialogOpen = false
+    },
+  },
 };
 </script>
 
