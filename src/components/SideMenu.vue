@@ -1,11 +1,11 @@
 <template lang="pug">
   .SideMenu.bg-side.card-shadow
     img(src="@/assets/images/爵仕美Logo-04.png")
-    el-menu.bg-side(default-active="2")
-      el-menu-item.side-menu-item.text-white(index="1")
+    el-menu.bg-side(default-active="1")
+      el-menu-item.side-menu-item.text-white(index="1" @click="$router.push('/main')")
         Icon.icon(icon="mdi:shield-alert-outline")
         span 權限管理
-      el-menu-item.side-menu-item.text-white(index="2")
+      el-menu-item.side-menu-item.text-white(index="2" @click="$router.push('/progress')")
         Icon.icon(icon="mdi:account-plus-outline")
         span 看診資訊
       el-menu-item.side-menu-item.text-white(index="3")
@@ -27,6 +27,11 @@ export default {
   name: "SideMenu",
   components: {
     Icon,
+  },
+  methods: {
+    handleClick() {
+      this.$router.push("/camera");
+    },
   },
 };
 </script>

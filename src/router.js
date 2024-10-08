@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Login from './views/Login.vue';  // 引入 Login 組件
 import Main from './views/Main.vue';      // 引入 Main 組件
 import Camera from './views/Camera.vue';
+import Progress from './views/Progress.vue';
 
 Vue.use(Router);
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/camera',
     name: 'Camera',
     component: Camera
+  },
+  {
+    path: '/progress',
+    name: 'Progress',
+    component: Progress
   },
 ];
 

@@ -2,13 +2,19 @@
   Layout
     .main.bg-primary
       .grid.grid-cols-3
-        .card.card-shadow.bg-white.flex.flex-column.center-center(v-for="(item, i) in cardItems" :key="i" @click="handleLogout")
-          label {{ item.label }}
+        .card.card-shadow.bg-white.flex.flex-column.center-center(v-for="(item, i) in cardItems" :key="i" @click="handleClick")
+          img(:src="item.img")
     
 </template>
 
 <script>
 import Layout from "@/components/Layout.vue";
+import img01 from '../assets/images/權限管理1.png'
+import img02 from '../assets/images/權限管理2.png'
+import img03 from '../assets/images/權限管理3.png'
+import img04 from '../assets/images/權限管理4.png'
+import img05 from '../assets/images/權限管理5.png'
+import img06 from '../assets/images/權限管理6.png'
 
 export default {
   name: "Main",
@@ -18,20 +24,17 @@ export default {
   data() {
     return {
       cardItems: [
-        { label: "倉存管理", icon: "" },
-        { label: "監視系統", icon: "" },
-        { label: "財務報表", icon: "" },
-        { label: "藥品採購", icon: "" },
-        { label: "出勤查詢", icon: "" },
-        { label: "人事管理", icon: "" },
+        { label: "倉存管理", img: img01 },
+        { label: "監視系統", img: img02 },
+        { label: "財務報表", img: img03 },
+        { label: "藥品採購", img: img04 },
+        { label: "出勤查詢", img: img05 },
+        { label: "人事管理", img: img06 },
       ],
     };
   },
   methods: {
-    handleLogout() {
-      // 在這裡處理登出邏輯
-      console.log("Logging out");
-      // 重定向到 Login 頁面
+    handleClick() {
       this.$router.push("/camera");
     },
   },
@@ -58,6 +61,9 @@ export default {
     backface-visibility: hidden;
     &:hover {
       transform: scale(103%);
+    }
+    img {
+      width: 110px;
     }
   }
 }
