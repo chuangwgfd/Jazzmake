@@ -3,7 +3,7 @@
     .login__form.bg-white.card-shadow
       h3.text-center.text-primary 後台系統
       el-input.input-primary(placeholder="使用者帳號" v-model="username")
-      el-input.input-primary(placeholder="使用者密碼" type="password" v-model="password")
+      el-input.input-primary(placeholder="使用者密碼" type="password" v-model="password" @keyup.enter.native="handleLogin")
       el-button.login__button.button-primary(@click="handleLogin") 登入
 
     img.login__logo(src="@/assets/images/爵仕美Logo-01.png")

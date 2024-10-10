@@ -1,6 +1,6 @@
 <template lang="pug">
   .SideMenu.bg-side.card-shadow
-    img(src="@/assets/images/爵仕美Logo-04.png")
+    img.pointer(src="@/assets/images/爵仕美Logo-04.png" @click="$router.push('/main')")
     el-menu.bg-side(default-active="1")
       el-menu-item.side-menu-item.text-white(index="1" @click="$router.push('/main')")
         Icon.icon(icon="mdi:shield-alert-outline")

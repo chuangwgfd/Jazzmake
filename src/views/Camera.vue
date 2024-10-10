@@ -31,7 +31,13 @@
       top="30vh"
     )
       .wrap.flex.flex-column.center-center
-        el-select.select-primary(placeholder="請選擇欲查看時間" v-model="value")
+        el-select.select-primary(
+          ref="querySelect"
+          placeholder="請選擇欲查看時間"
+          v-model="value"
+          @keyup.enter.native="handleQuery"
+          @keydown.enter.native="disableVisible"
+        )
           el-option.option-primary(v-for="(item, i) in options" :key="i" :label="item.label" :value="item.value")
         el-button.button-primary.mt-1(@click="handleQuery") 前往查詢
 
@@ -53,11 +59,11 @@
         .wrap.flex.flex-column.center-center
           Icon.dialog-icon(icon="bi:x-circle")
           label 輸入的密碼不正確
-          el-button.button-secondary.mt-1(@click="handleCloseError") 確定
+          el-button.button-secondary.mt-1(ref="errorBtnConfirm" @click="handleCloseError") 確定
 
       .wrap.flex.flex-column.center-center
         label.align-self-start(:style="{fontSize: '1rem'}") 請輸入管理員密碼
-        el-input.input-primary.mt-1(type="password" v-model="password")
+        el-input.input-primary.mt-1(ref="inputRef" type="password" v-model="password" @keyup.enter.native.stop="handleLogin")
         el-button.button-primary.mt-1(@click="handleLogin") 登入
       
 </template>
@@ -113,6 +119,9 @@ export default {
     this.isQueryDialogOpen = true
   },
   methods: {
+    disableVisible() {
+      this.$refs.querySelect.visible = false
+    },
     handleQuery() {
       this.queryOn = true
       this.isQueryDialogOpen = false
@@ -124,10 +133,12 @@ export default {
       this.isLoginDialogOpen = true
     },
     handleLogin() {
-      this.isErrorDialogOpen = true
+      this.password = ''
+      this.isErrorDialogOpen = !this.isErrorDialogOpen
     },
     handleCloseError() {
       this.isErrorDialogOpen = false
+      this.$refs.inputRef.focus()
     },
   },
 };

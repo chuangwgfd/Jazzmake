@@ -50,6 +50,7 @@ export default {
     padding: 3rem;
   }
   .card {
+    background: #fcfcfc;
     font-family: "Helvetica", "Arial", "Microsoft JhengHei", sans-serif;
     font-weight: bold;
     width: 200px;
