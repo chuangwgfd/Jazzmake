@@ -23,3 +23,16 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin: 0;                        // 去掉段落的預設邊距
 }
+
+.el-pager {
+  .number {
+    color: #999;
+    &.active {
+      text-decoration: underline;
+      color: #cc6a68;
+    }
+    &:hover {
+      color: #cc6a68;
+    }
+  }
+}

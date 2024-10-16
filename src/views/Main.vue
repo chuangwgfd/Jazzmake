@@ -4,17 +4,18 @@
       .grid.grid-cols-3
         .card.card-shadow.bg-white.flex.flex-column.center-center(v-for="(item, i) in cardItems" :key="i" @click="handleClick")
           img(:src="item.img")
+          label {{ item.label }}
     
 </template>
 
 <script>
 import Layout from "@/components/Layout.vue";
-import img01 from '../assets/images/權限管理1.png'
-import img02 from '../assets/images/權限管理2.png'
-import img03 from '../assets/images/權限管理3.png'
-import img04 from '../assets/images/權限管理4.png'
-import img05 from '../assets/images/權限管理5.png'
-import img06 from '../assets/images/權限管理6.png'
+import img01 from '../assets/images/storege.svg'
+import img02 from '../assets/images/CCTV.svg'
+import img03 from '../assets/images/financial.svg'
+import img04 from '../assets/images/medical procurement.svg'
+import img05 from '../assets/images/attendance.svg'
+import img06 from '../assets/images/employee.svg'
 
 export default {
   name: "Main",
@@ -54,7 +55,7 @@ export default {
     font-family: "Helvetica", "Arial", "Microsoft JhengHei", sans-serif;
     font-weight: bold;
     width: 200px;
-    height: 150px;
+    height: 160px;
     margin: 2.5rem 0;
     border-radius: 1.5rem;
     cursor: pointer;
@@ -64,7 +65,7 @@ export default {
       transform: scale(103%);
     }
     img {
-      width: 110px;
+      width: 50%;
     }
   }
 }

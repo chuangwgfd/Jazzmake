@@ -51,20 +51,20 @@ export default {
         { key: 'need', label: '諮詢需求' },
       ],
       tableData: [
-        { status: '預約報到', time: '08:30', id: '245206483', name: '陳至華', need: '水光音波', room: '一診', disabled: true },
-        { status: '預約報到', time: '08:30', id: '246033982', name: '李安可', need: '皮秒雷射', room: '二診', disabled: true },
-        { status: '已過號', time: '09:00', id: '220394502', name: '王心儀', need: '臀部抽脂', room: '一診', disabled: true },
-        { status: '預約報到', time: '09:00', id: '212356480', name: '廖芸潔', need: '熊貓針', room: '二診', disabled: true },
-        { status: '已過號', time: '09:30', id: '220563881', name: '王宜靜', need: '美式電波', room: '一診', disabled: true },
-        { status: '預約報到', time: '10:00', id: '267748026', name: '許一庭', need: '眼袋抽取術', room: '一診', disabled: false },
-        { status: '預約報到', time: '10:00', id: '220224563', name: '林筱鈺', need: '水光音波', room: '三診', disabled: false },
-        { status: '預約報到', time: '10:20', id: '256021680', name: '張安晴', need: '皮秒雷射', room: '二診', disabled: false },
-        { status: '預約報到', time: '10:30', id: '263045872', name: '羅文琪', need: '果酸換膚', room: '一診', disabled: false },
-        { status: '預約報到', time: '11:00', id: '203854331', name: '許漢宗', need: '面部削骨', room: '二診', disabled: false },
-        { status: '預約報到', time: '11:00', id: '223044922', name: '梁書燁', need: '音波拉皮', room: '三診', disabled: false },
-        { status: '預約報到', time: '11:30', id: '242564038', name: '葉小琳', need: '胸部隆乳', room: '一診', disabled: false },
-        { status: '預約報到', time: '11:30', id: '213040868', name: '李知寧', need: '水光音波', room: '二診', disabled: false },
-        { status: '預約報到', time: '11:30', id: '202855765', name: '黃庭昱', need: '眼袋抽取術', room: '三診', disabled: false },
+        { status: '預約報到', time: '10:30', id: '245206483', name: '陳至華', need: '水光音波', room: '診A', disabled: true },
+        { status: '預約報到', time: '10:30', id: '246033982', name: '李安可', need: '皮秒雷射', room: '診B', disabled: true },
+        { status: '已過號', time: '11:00', id: '220394502', name: '王心儀', need: '臀部抽脂', room: '診A', disabled: true },
+        { status: '預約報到', time: '11:30', id: '212356480', name: '廖芸潔', need: '熊貓針', room: '診B', disabled: true },
+        { status: '已過號', time: '13:00', id: '220563881', name: '王宜靜', need: '美式電波', room: '診A', disabled: true },
+        { status: '預約報到', time: '13:30', id: '267748026', name: '許一庭', need: '眼袋抽取術', room: '診A', disabled: false },
+        { status: '預約報到', time: '13:30', id: '220224563', name: '林筱鈺', need: '水光音波', room: '診C', disabled: false },
+        { status: '預約報到', time: '14:20', id: '256021680', name: '張安晴', need: '皮秒雷射', room: '診B', disabled: false },
+        { status: '預約報到', time: '14:30', id: '263045872', name: '羅文琪', need: '果酸換膚', room: '診A', disabled: false },
+        { status: '預約報到', time: '15:00', id: '203854331', name: '許漢宗', need: '面部削骨', room: '診B', disabled: false },
+        { status: '預約報到', time: '15:00', id: '223044922', name: '梁書燁', need: '音波拉皮', room: '診C', disabled: false },
+        { status: '預約報到', time: '15:30', id: '242564038', name: '葉小琳', need: '胸部隆乳', room: '診A', disabled: false },
+        { status: '預約報到', time: '16:30', id: '213040868', name: '李知寧', need: '水光音波', room: '診B', disabled: false },
+        { status: '預約報到', time: '16:30', id: '202855765', name: '黃庭昱', need: '眼袋抽取術', room: '診C', disabled: false },
       ],
     };
   },
@@ -118,6 +118,16 @@ export default {
   }
   .page {
     padding: 2rem;
+    >>> .el-pagination {
+      background: red;
+      .el-pager {
+        li {
+          &:active {
+            color: #cc6a68 !important;
+          }
+        }
+      }
+    }
   }
 }
 </style>
