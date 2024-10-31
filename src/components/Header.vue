@@ -4,7 +4,7 @@
       img.logo(src="@/assets/images/爵仕美Logo-03.png")
       .account.flex.justify-content-end.align-items-center
         img.user(:src="img")
-        span A003_Hau
+        span A003_Hsu
         Icon.icon(icon="mdi:hamburger-menu")
 </template>
 

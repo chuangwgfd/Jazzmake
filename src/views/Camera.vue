@@ -42,6 +42,24 @@
         el-button.button-primary.mt-1(@click="handleQuery") 前往查詢
 
     el-dialog(
+      :visible="isCameraDialogOpen"
+      :before-close="handleCloseCameraDialog"
+      custom-class="dialog-primary"
+      width="840px"
+      top="10vh"
+    )
+      .wrap
+        iframe(
+          :src="youtubeUrl"
+          width="800"
+          height="450"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        )
+
+    el-dialog(
       :visible="isLoginDialogOpen"
       :before-close="handleClose"
       width="400px"
@@ -83,6 +101,7 @@ export default {
       isQueryDialogOpen: false,
       isLoginDialogOpen: false,
       isErrorDialogOpen: false,
+      isCameraDialogOpen: false,
       queryOn: false,
       password: '',
       value: '',
@@ -113,6 +132,7 @@ export default {
         { date: "2024/09/25" },
         { date: "2024/09/26" },
       ],
+      youtubeUrl: 'https://youtu.be/fcoq60SjBIs?feature=shared'
     };
   },
   mounted() {
@@ -133,6 +153,7 @@ export default {
       this.isLoginDialogOpen = true
     },
     handleLogin() {
+      if (this.password === 'zxc000') return this.isCameraDialogOpen = true
       this.password = ''
       this.isErrorDialogOpen = !this.isErrorDialogOpen
     },
@@ -140,6 +161,9 @@ export default {
       this.isErrorDialogOpen = false
       this.$refs.inputRef.focus()
     },
+     handleCloseCameraDialog() {
+      this.isCameraDialogOpen = false
+    }
   },
 };
 </script>
