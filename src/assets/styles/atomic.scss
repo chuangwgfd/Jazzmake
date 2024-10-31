@@ -203,6 +203,9 @@ $spacing-large: 24px;
   }
   .wrap {
     position: relative;
+    iframe {
+      background: #000;
+    }
   }
   .videoHidden {
     position: absolute;
