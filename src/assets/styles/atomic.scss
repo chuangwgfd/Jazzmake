@@ -201,6 +201,17 @@ $spacing-large: 24px;
       text-align: center;
     }
   }
+  .wrap {
+    position: relative;
+  }
+  .videoHidden {
+    position: absolute;
+    bottom: 7px;
+    right: 2px;
+    width: 114px;
+    height: 30px;
+    background: #000;
+  }
 }
 
 .dialog-error {
